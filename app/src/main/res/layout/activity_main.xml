@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.cre.dice.MainActivity">
+
+    <Button
+        android:text="@string/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/Roll10"
+        android:layout_below="@+id/Roll6"
+        android:layout_alignLeft="@+id/Roll6"
+        android:layout_alignStart="@+id/Roll6"
+        android:onClick="onRoll10" />
+
+    <Button
+        android:text="@string/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/Roll20"
+        android:layout_below="@+id/Roll10"
+        android:layout_alignLeft="@+id/Roll10"
+        android:layout_alignStart="@+id/Roll10"
+        android:onClick="onRoll20" />
+
+    <Button
+        android:text="@string/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Roll20"
+        android:layout_alignLeft="@+id/Roll20"
+        android:layout_alignStart="@+id/Roll20"
+        android:layout_marginTop="10dp"
+        android:id="@+id/Roll100"
+        android:onClick="onRoll100" />
+
+    <Button
+        android:text="@string/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Roll100"
+        android:layout_alignLeft="@+id/Roll100"
+        android:layout_alignStart="@+id/Roll100"
+        android:layout_marginTop="10dp"
+        android:id="@+id/RollCustom"
+        android:onClick="onRollCustom" />
+
+    <TextView
+        android:text="@string/result_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RollCustom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ResultTag"
+        android:layout_marginTop="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/ResultDisplay"
+        android:layout_below="@+id/ResultTag"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/result_back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:maxLines="1000"
+        android:scrollbars="vertical"
+        android:padding="5dp" />
+
+    <Button
+        android:text="@string/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:id="@+id/Roll6"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onRoll6" />
+
+    <TextView
+        android:text="D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextD"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignBottom="@+id/RollCustom"
+        android:layout_marginBottom="2dp"
+        android:layout_alignLeft="@+id/TextD100"
+        android:layout_alignStart="@+id/TextD100" />
+
+    <TextView
+        android:text="D100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextD100"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignBottom="@+id/Roll100"
+        android:layout_marginBottom="2dp"
+        android:layout_alignLeft="@+id/TextD20"
+        android:layout_alignStart="@+id/TextD20" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/Roll20"
+        android:layout_toLeftOf="@+id/TextD10"
+        android:layout_marginRight="10dp"
+        android:gravity="right"
+        android:paddingRight="7dp"
+        android:id="@+id/D10Times"
+        android:hint="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/Roll100"
+        android:layout_toLeftOf="@+id/TextD20"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/TextD20"
+        android:gravity="right"
+        android:paddingRight="7dp"
+        android:id="@+id/D20Times"
+        android:hint="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/D6Times"
+        android:layout_above="@+id/Roll10"
+        android:layout_toLeftOf="@+id/TextD6"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/TextD6"
+        android:gravity="right"
+        android:paddingRight="7dp"
+        android:hint="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/RollCustom"
+        android:layout_toLeftOf="@+id/TextD100"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/TextD100"
+        android:gravity="right"
+        android:paddingRight="7dp"
+        android:id="@+id/D100Times"
+        android:hint="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/ResultTag"
+        android:layout_toLeftOf="@+id/TextD"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/TextD"
+        android:gravity="right"
+        android:paddingRight="7dp"
+        android:id="@+id/CustomTimes"
+        android:hint="1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/ResultTag"
+        android:layout_toLeftOf="@+id/RollCustom"
+        android:layout_toRightOf="@+id/TextD"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="7dp"
+        android:id="@+id/CustomSides" />
+
+    <TextView
+        android:text="D10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextD10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignBottom="@+id/Roll10"
+        android:layout_marginBottom="2dp"
+        android:layout_toRightOf="@+id/D20Times"
+        android:layout_toEndOf="@+id/D20Times" />
+
+    <TextView
+        android:text="D6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextD6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignBottom="@+id/Roll6"
+        android:layout_marginBottom="2dp"
+        android:layout_alignLeft="@+id/TextD10"
+        android:layout_alignStart="@+id/TextD10" />
+
+    <TextView
+        android:text="D20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextD20"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_alignBottom="@+id/Roll20"
+        android:layout_marginBottom="2dp"
+        android:layout_toLeftOf="@+id/Roll20"
+        android:layout_toStartOf="@+id/Roll20"
+        android:layout_marginRight="82dp"
+        android:layout_marginEnd="82dp" />
+
+</RelativeLayout>
