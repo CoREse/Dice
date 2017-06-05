@@ -2,9 +2,12 @@ package com.cre.dice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     long D10Times=1;
     long D20Times=1;
     long D100Times=1;
+    long Last=0;
+    boolean Plus=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    void clearFocus()
+    {
+        View CF=getCurrentFocus();
+        if (CF!=null) CF.clearFocus();
+    }
+
     void saveStatus()
     {
         SharedPreferences MyPref=this.getPreferences(Context.MODE_PRIVATE);
@@ -145,98 +156,49 @@ public class MainActivity extends AppCompatActivity {
 
     void onRoll6(View V)
     {
-        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
         EditText D6TimesV=(EditText)findViewById(R.id.D6Times);
         String D6TimesS=D6TimesV.getText().toString();
         if (D6TimesS.equals("")) D6Times=1;
         else D6Times=Integer.parseInt(D6TimesS);
-        if (D6Times==0)
-        {
-            hideIME();
-            cleanText(Display);
-            return;
-        }
-        Vector<Integer> Result=roll(6,D6Times);
-        hideIME();
-        Display.scrollTo(0,0);
-        Display.setText(explainResult(Result));
+        rollNDisplay(D6Times,6);
     }
     void onRoll10(View V)
     {
-        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
         EditText D10TimesV=(EditText)findViewById(R.id.D10Times);
         String D10TimesS=D10TimesV.getText().toString();
         if (D10TimesS.equals("")) D10Times=1;
         else D10Times=Integer.parseInt(D10TimesS);
-        if (D10Times==0)
-        {
-            hideIME();
-            cleanText(Display);
-            return;
-        }
-        Vector<Integer> Result=roll(10,D10Times);
-        hideIME();
-        Display.scrollTo(0,0);
-        Display.setText(explainResult(Result));
+        rollNDisplay(D10Times,10);
     }
     void onRoll20(View V)
     {
-        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
         EditText D20TimesV=(EditText)findViewById(R.id.D20Times);
         String D20TimesS=D20TimesV.getText().toString();
         if (D20TimesS.equals("")) D20Times=1;
         else D20Times=Integer.parseInt(D20TimesS);
-        if (D20Times==0)
-        {
-            hideIME();
-            cleanText(Display);
-            return;
-        }
-        Vector<Integer> Result=roll(20,D20Times);
-        hideIME();
-        Display.scrollTo(0,0);
-        Display.setText(explainResult(Result));
+        rollNDisplay(D20Times,20);
     }
     void onRoll100(View V)
     {
-        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
         EditText D100TimesV=(EditText)findViewById(R.id.D100Times);
         String D100TimesS=D100TimesV.getText().toString();
         if (D100TimesS.equals("")) D100Times=1;
         else D100Times=Integer.parseInt(D100TimesS);
-        if (D100Times==0)
-        {
-            hideIME();
-            cleanText(Display);
-            return;
-        }
-        Vector<Integer> Result=roll(100,D100Times);
-        hideIME();
-        Display.scrollTo(0,0);
-        Display.setText(explainResult(Result));
+        rollNDisplay(D100Times,100);
     }
     void onRollCustom(View V)
     {
-        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
         EditText CustomTimesV=(EditText)findViewById(R.id.CustomTimes);
         EditText CustomSidesV=(EditText)findViewById(R.id.CustomSides);
         String CustomTimesS=CustomTimesV.getText().toString();
         long CustomTimes=1;
+        int CustomSides=1;
         String CustomSidesS=CustomSidesV.getText().toString();
-        if (CustomSidesS.equals("")) return;
-        int CustomSides=Integer.parseInt(CustomSidesS);
+        if (CustomSidesS.equals("")) CustomSides=1;
+        else CustomSides=Integer.parseInt(CustomSidesS);
         if (CustomTimesS.equals("")) CustomTimes=1;
         else CustomTimes=Integer.parseInt(CustomTimesS);
-        if (CustomTimes==0||CustomSides==0)
-        {
-            hideIME();
-            cleanText(Display);
-            return;
-        }
-        Vector<Integer> Result=roll(CustomSides,CustomTimes);
-        hideIME();
-        Display.scrollTo(0,0);
-        Display.setText(explainResult(Result));
+        rollNDisplay(CustomTimes,CustomSides);
     }
 
     void cleanText(View V)
@@ -244,5 +206,49 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)V).setText("");
         //V.setVisibility(View.INVISIBLE);
         //V.setVisibility(View.VISIBLE);
+    }
+
+    void rollNDisplay(long Times, int Sides)
+    {
+        clearFocus();
+        TextView Display=(TextView)findViewById(R.id.ResultDisplay);
+        if (Times==0||Sides==0)
+        {
+            hideIME();
+            cleanText(Display);
+            return;
+        }
+        Vector<Integer> Result=roll(Sides,Times);
+        hideIME();
+        Display.scrollTo(0,0);
+        String Text="["+Times+"d"+Sides+"]\n";
+        if (Sides==1) Text+="Total "+Times+".";
+        else Text+=explainResult(Result);
+        long Total=0;
+        for (int i=0;i<Result.size();++i)
+        {
+            Total+=Result.get(i);
+        }
+        if (Plus)
+        {
+            Total+=Last;
+            Text+="\n+(last)"+Last+"="+Total+".";
+            Plus=false;
+            refreshPlus();
+        }
+        Display.setText(Text);
+        Last=Total;
+    }
+    void onClickPlus(View V)
+    {
+        if (Plus) Plus=false;
+        else Plus=true;
+        refreshPlus();
+    }
+    void refreshPlus()
+    {
+        TextView PlusButton=(TextView) findViewById(R.id.button_plus);
+        if (Plus) PlusButton.setBackgroundResource(android.R.color.darker_gray);
+        else PlusButton.setBackgroundResource(0);
     }
 }
