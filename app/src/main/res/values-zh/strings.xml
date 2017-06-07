@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">骰子</string>
+
+    <string name="result_tag">结果:</string>
+    <string name="roll_button">投!</string>
+    <string name="mark_total">合计</string>
+    <string name="note_last">之前的</string>
+</resources>

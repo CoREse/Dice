@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Vector;
@@ -221,8 +224,9 @@ public class MainActivity extends AppCompatActivity {
         Vector<Integer> Result=roll(Sides,Times);
         hideIME();
         Display.scrollTo(0,0);
-        String Text="["+Times+"d"+Sides+"]\n";
-        if (Sides==1) Text+="Total "+Times+".";
+        Date Now=Calendar.getInstance().getTime();
+        String Text="["+Times+"d"+Sides+"]("+ Now.getHours()+":"+Now.getMinutes()+":"+Now.getSeconds() +")\n";
+        if (Sides==1) Text+=getString(R.string.mark_total)+" "+Times+".";
         else Text+=explainResult(Result);
         long Total=0;
         for (int i=0;i<Result.size();++i)
@@ -232,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
         if (Plus)
         {
             Total+=Last;
-            Text+="\n+(last)"+Last+"="+Total+".";
+            Text+="\n+("+getString(R.string.note_last)+")"+Last+"="+Total+".";
             Plus=false;
             refreshPlus();
         }

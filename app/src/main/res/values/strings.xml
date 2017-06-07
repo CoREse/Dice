@@ -3,4 +3,6 @@
 
     <string name="result_tag">Result:</string>
     <string name="roll_button">Roll!</string>
+    <string name="mark_total">Total</string>
+    <string name="note_last">last</string>
 </resources>
