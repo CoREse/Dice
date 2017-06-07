@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void onRoll6(View V)
+    public void onRoll6(View V)
     {
         EditText D6TimesV=(EditText)findViewById(R.id.D6Times);
         String D6TimesS=D6TimesV.getText().toString();
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         else D6Times=Integer.parseInt(D6TimesS);
         rollNDisplay(D6Times,6);
     }
-    void onRoll10(View V)
+    public void onRoll10(View V)
     {
         EditText D10TimesV=(EditText)findViewById(R.id.D10Times);
         String D10TimesS=D10TimesV.getText().toString();
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         else D10Times=Integer.parseInt(D10TimesS);
         rollNDisplay(D10Times,10);
     }
-    void onRoll20(View V)
+    public void onRoll20(View V)
     {
         EditText D20TimesV=(EditText)findViewById(R.id.D20Times);
         String D20TimesS=D20TimesV.getText().toString();
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         else D20Times=Integer.parseInt(D20TimesS);
         rollNDisplay(D20Times,20);
     }
-    void onRoll100(View V)
+    public void onRoll100(View V)
     {
         EditText D100TimesV=(EditText)findViewById(R.id.D100Times);
         String D100TimesS=D100TimesV.getText().toString();
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         else D100Times=Integer.parseInt(D100TimesS);
         rollNDisplay(D100Times,100);
     }
-    void onRollCustom(View V)
+    public void onRollCustom(View V)
     {
         EditText CustomTimesV=(EditText)findViewById(R.id.CustomTimes);
         EditText CustomSidesV=(EditText)findViewById(R.id.CustomSides);
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         Display.setText(Text);
         Last=Total;
     }
-    void onClickPlus(View V)
+    public void onClickPlus(View V)
     {
         if (Plus) Plus=false;
         else Plus=true;
