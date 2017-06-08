@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             Total+=Result.get(i);
         }
         Total+=Result.get(Result.size()-1);
-        E+=Result.get(Result.size()-1)+".\nTotal "+Total+".";
+        E+=Result.get(Result.size()-1)+".\n"+getString(R.string.mark_total)+" "+Total+".";
         return E;
     }
 
