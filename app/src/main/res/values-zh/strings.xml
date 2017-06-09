@@ -5,4 +5,13 @@
     <string name="roll_button">投!</string>
     <string name="mark_total">合计</string>
     <string name="note_last">之前的</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_settings">设置</string>
+    <string name="about_text">2017 CRE</string>
+    <string name="about_title">关于骰子</string>
+    <string name="label_language">语言</string>
+    <string name="settings_title">设置</string>
+    <string name="set_default_language">已将语言设为默认，重启应用后生效。</string>
+    <string name="radio_default_language">默认语言</string>
+    <string name="menu_restart">重启应用</string>
 </resources>

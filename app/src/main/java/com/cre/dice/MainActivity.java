@@ -1,6 +1,7 @@
 package com.cre.dice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
@@ -8,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         TextView ResultDisplay=(TextView) findViewById(R.id.ResultDisplay);
@@ -93,6 +98,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu M) {
+        MenuInflater Inflater = getMenuInflater();
+        Inflater.inflate(R.menu.main_menu, M);
+        return true;
+    }
+
+    public void onMenuSettings(MenuItem Item)
+    {
+        Intent I=new Intent(this, SettingsActivity.class);
+        startActivity(I);
+    }
+
+    public void onMenuAbout(MenuItem Item)
+    {
+        Intent I=new Intent(this, AboutActivity.class);
+        startActivity(I);
     }
 
     void clearFocus()
