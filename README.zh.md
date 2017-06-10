@@ -6,4 +6,4 @@
 
 预想的应用场景是线下聚会时玩桌游用，比如一些TRPG（DnD,CoC之类的）
 
-由[CRE](https://github.com/CoREse)开发。在GNU GPLv3授权下。
+由[CRE](https://github.com/CoREse)开发。在[GNU GPLv3](LICENSE.md)授权下。
