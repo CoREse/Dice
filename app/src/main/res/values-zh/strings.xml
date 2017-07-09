@@ -14,4 +14,8 @@
     <string name="set_default_language">已将语言设为默认，重启应用后生效。</string>
     <string name="radio_default_language">默认语言</string>
     <string name="menu_restart">重启应用</string>
+    <string name="about_source">所有源代码均可从https://github.com/CoREse/Dice获取。\n在GNU GPL 3.0证书下开源。</string>
+    <string name="about_donation">欢迎所有捐赠！谢谢您的支持！</string>
+    <string name="donation_alipay">支付宝</string>
+    <string name="donation_bitcoin">比特币：1FWyMawEHKSYn8v1FNtQsLKG2aaky9Wt2V</string>
 </resources>

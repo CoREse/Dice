@@ -14,4 +14,8 @@
     <string name="set_default_language">Set the language to default. Will apply after app restart.</string>
     <string name="radio_default_language">Default</string>
     <string name="menu_restart">Restart</string>
+    <string name="about_source">All source code can be obtained from https://github.com/CoREse/Dice.\nLicense under GNU GPL 3.0.</string>
+    <string name="about_donation">All donations are welcome. Thank you for your support!</string>
+    <string name="donation_alipay">Alipay</string>
+    <string name="donation_bitcoin">Bitcoin:1FWyMawEHKSYn8v1FNtQsLKG2aaky9Wt2V</string>
 </resources>
