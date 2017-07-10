@@ -10,89 +10,95 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cre.dice.AboutActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/about_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:padding="15dp"
-        android:text="@string/app_name" />
 
-    <TextView
-        android:text="@string/about_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/about_text"
-        android:padding="15dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:text="@string/about_source"
-        android:autoLink="web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="15dp"
-        android:id="@+id/about_source" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <TextView
-        android:text="@string/about_donation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_source"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="15dp"
-        android:id="@+id/about_donation" />
+            <TextView
+                android:id="@+id/about_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="15dp"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/alipay"
-        android:layout_below="@+id/about_donation"
-        android:id="@+id/image_alipay" />
+            <TextView
+                android:id="@+id/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/about_title"
+                android:padding="15dp"
+                android:text="@string/about_text" />
 
-    <TextView
-        android:text="@string/donation_alipay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/donation_alipay"
-        android:gravity="center"
-        android:layout_below="@id/image_alipay"
-        android:layout_alignLeft="@id/image_alipay"
-        android:layout_alignStart="@id/image_alipay"
-        android:layout_alignRight="@id/image_alipay"
-        android:layout_alignEnd="@id/image_alipay"/>
+            <TextView
+                android:id="@+id/about_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/about_text"
+                android:autoLink="web"
+                android:padding="15dp"
+                android:text="@string/about_source" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/bitcoin"
-        android:layout_below="@+id/about_donation"
-        android:layout_toRightOf="@+id/donation_alipay"
-        android:layout_marginLeft="7dp"
-        android:layout_marginStart="7dp"
-        android:id="@+id/image_bitcoin"
-        android:layout_above="@+id/donation_alipay"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/about_donation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/about_source"
+                android:padding="15dp"
+                android:text="@string/about_donation" />
 
-    <TextView
-        android:text="@string/donation_bitcoin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image_bitcoin"
-        android:layout_alignLeft="@+id/image_bitcoin"
-        android:layout_alignStart="@+id/image_bitcoin"
-        android:layout_alignEnd="@id/image_bitcoin"
-        android:layout_alignRight="@id/image_bitcoin"
-        android:gravity="center"
-        android:id="@+id/donation_bitcoin" />
+            <ImageView
+                android:id="@+id/image_alipay"
+                android:layout_width="match_parent"
+                android:layout_height="178dp"
+                android:layout_below="@+id/about_donation"
+                app:srcCompat="@mipmap/alipay" />
+
+            <TextView
+                android:id="@+id/donation_alipay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/image_alipay"
+                android:layout_alignLeft="@id/image_alipay"
+                android:layout_alignRight="@id/image_alipay"
+                android:layout_alignStart="@id/image_alipay"
+                android:layout_below="@id/image_alipay"
+                android:gravity="center"
+                android:text="@string/donation_alipay" />
+
+            <ImageView
+                android:id="@+id/image_bitcoin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/bitcoin" />
+
+            <TextView
+                android:id="@+id/donation_bitcoin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/image_bitcoin"
+                android:layout_alignLeft="@+id/image_bitcoin"
+                android:layout_alignRight="@id/image_bitcoin"
+                android:layout_alignStart="@+id/image_bitcoin"
+                android:layout_below="@+id/image_bitcoin"
+                android:gravity="center"
+                android:text="@string/donation_bitcoin" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
