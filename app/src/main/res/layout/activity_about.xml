@@ -43,6 +43,16 @@
                 android:text="@string/about_text" />
 
             <TextView
+                android:text="@string/about_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:padding="15dp"
+                android:autoLink="email"
+                android:id="@+id/about_contact" />
+
+            <TextView
                 android:id="@+id/about_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
